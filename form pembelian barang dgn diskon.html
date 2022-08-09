@@ -36,39 +36,6 @@
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
 
-  <script>
-    for(const proses = 1; i<=10; i++){
-      console.log(proses);
-    }
-    const proses = document.getElementById("button");
-
-    proses.addEventListener("click", function(e){
-      e.preventDefault();
-
-      var nama = document.getElementById("nama barang").value;
-      var harga = document.getElementById("harga").value;
-      var jumlah = document.getElementById("jumlah").value;
-      var bayar = document.getElementById("bayar").value;
-
-      var diskon = 0;
-
-    if (jumlah <= 3){
-      var diskon = 0.10;
-    } 
-    else if (jumlah <= 5){
-      var diskon = 0.25;
-    } 
-    else if (jumlah <= 10){
-      var diskon = 0.50;
-    } 
-
-    document.getElementById("total").value = total;
-    document.getElementById("diskon").value = jumlah_diskon;
-    document.getElementById("bayar").value = hasil;
-    
-    })
-  </script>
-
 </head>
 <body>
   
