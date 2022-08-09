@@ -36,6 +36,39 @@
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
 
+  <script>
+    for(const proses = 1; i<=10; i++){
+      console.log(proses);
+    }
+    const proses = document.getElementById("button");
+
+    proses.addEventListener("click", function(e){
+      e.preventDefault();
+
+      var nama = document.getElementById("nama barang").value;
+      var harga = document.getElementById("harga").value;
+      var jumlah = document.getElementById("jumlah").value;
+      var bayar = document.getElementById("bayar").value;
+
+      var diskon = 0;
+
+    if (jumlah <= 3){
+      var diskon = 0.10;
+    } 
+    else if (jumlah <= 5){
+      var diskon = 0.25;
+    } 
+    else if (jumlah <= 10){
+      var diskon = 0.50;
+    } 
+
+    document.getElementById("total").value = total;
+    document.getElementById("diskon").value = jumlah_diskon;
+    document.getElementById("bayar").value = hasil;
+    
+    })
+  </script>
+
 </head>
 <body>
   
@@ -105,7 +138,7 @@
                         <tr>
                           <td class="text-white font-tertiary">Jumlah</td>
                           <td class="text-white font-tertiary">:</td>
-                          <td style="padding-left: 15px;"><input type="text" name="jumlah" size="39"></td>
+                          <td style="padding-left: 15px;"><input id="jumlah" type="text" name="jumlah" size="39"></td>
                         </tr>
 
                         <tr>
@@ -120,25 +153,25 @@
                         <tr>
                           <td class="text-white font-tertiary">Harga</td>
                           <td class="text-white font-tertiary">:</td>
-                          <td style="padding-left: 15px;"><input type="text" name="harga" size="39"></td>
+                          <td style="padding-left: 15px;"><input id="harga" type="text" name="harga" size="39"></td>
                         </tr>
   
                         <tr>
                           <td class="text-white font-tertiary">Total</td>
                           <td class="text-white font-tertiary">:</td>
-                          <td style="padding-left: 15px;"><input type="text" name="total" size="39"></td>
+                          <td style="padding-left: 15px;"><input id="total" type="text" name="total" size="39"></td>
                        </tr>
 
                         <tr>
-                          <td class="text-white font-tertiary">Diskon 10%</td>
+                          <td class="text-white font-tertiary">Diskon</td>
                           <td class="text-white font-tertiary">:</td>
-                          <td style="padding-left: 15px;"><input type="text" name="diskon" size="39"></td>
+                          <td style="padding-left: 15px;"><input id="diskon" type="text" name="diskon" size="39"></td>
                         </tr>
 
                         <tr>
                           <td class="text-white font-tertiary">Bayar</td>
                           <td class="text-white font-tertiary">:</td>
-                          <td style="padding-left: 15px;"><input type="text" name="bayar" size="39"></td>
+                          <td style="padding-left: 15px;"><input id="bayar" type="text" name="bayar" size="39"></td>
                         </tr>
                       </table>
                       <br>
@@ -146,12 +179,27 @@
                           <button class="button btn-success" onClick='inputdata()' type="button"
                               name="Bsubmit">Proses</button>
                           <button class="button btn-info" type="reset" name="Breset">Reset</button></p>
-  
                   </form>
               </div>
+
+              <table class="table" id="databel">
+                <thead>
+                    <tr>
+                        <th class="text-white font-tertiary" scope="col">Nama Barang</th>
+                        <th class="text-white font-tertiary" scope="col">Jumlah</th>
+                        <th class="text-white font-tertiary" scope="col">Status</th>
+                        <th class="text-white font-tertiary" scope="col">Harga</th>
+                        <th class="text-white font-tertiary" scope="col">Total</th>
+                        <th class="text-white font-tertiary" scope="col">Diskon</th>
+                        <th class="text-white font-tertiary" scope="col">Bayar</th>
+                    </tr>
+                </thead>
+            </table>
+
           </div>
       </div>
   </div>
+
   <!-- background shapes -->
   <img src="images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
   <img src="images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
