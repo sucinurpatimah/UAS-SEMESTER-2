@@ -85,64 +85,73 @@
 <section class="page-title bg-primary position-relative">
   <h3 class="text-center text-white font-tertiary">FORMULIR PEMBELIAN BARANG DENGAN DISKON</h3>
   <form method="POST" action=" " name="form pembelian barang dgn diskon">
-    <table width="100%">
-        <tr>
-            <td class="text-white font-tertiary">Nama Barang</td>
-            <td class="text-white font-tertiary">:</td>
-            <td><select>
-              <option>Monitor</option>
-              <option>HT</option>
-              <option>Lainnya</option>
-            </select></td>
-        </tr>
+    <div class="container-fluid py-5">
+      <div class="container pt-5">
+          <div class="row">
+              <div class="col-lg-6">
+                  <form method="POST" action=" " name="form pembelian barang">
+                      <table width="100%">
+                        <tr>
+                          <td><label class="text-white font-tertiary">Nama Barang</label></td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td><select name="nama barang">
+                              <option value="monitor"> Monitor </option>
+                              <option value="laptop"> Laptop </option>
+                              <option value="tv"> TV </option>
+                              <option value="kulkas"> Kulkas </option>
+                          </select></td>
+                        </tr>
+  
+                        <tr>
+                          <td class="text-white font-tertiary">Jumlah</td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td style="padding-left: 15px;"><input type="text" name="jumlah" size="39"></td>
+                        </tr>
 
-        <tr>
-          <td class="text-white font-tertiary">Jumlah</td>
-          <td class="text-white font-tertiary">:</td>
-          <td style="padding-left: 15px;"><input type="text" name="jumlah" size="39"></td>
-      </tr>
+                        <tr>
+                          <td><label class="text-white font-tertiary">Status</label></td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td><select name="status">
+                              <option value="pelanggan"> Pelanggan </option>
+                              <option value="bukan pelanggan"> Bukan Pelanggan </option>
+                          </select></td>
+                        </tr>
+  
+                        <tr>
+                          <td class="text-white font-tertiary">Harga</td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td style="padding-left: 15px;"><input type="text" name="harga" size="39"></td>
+                        </tr>
+  
+                        <tr>
+                          <td class="text-white font-tertiary">Total</td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td style="padding-left: 15px;"><input type="text" name="total" size="39"></td>
+                       </tr>
 
-        <tr>
-          <td class="text-white font-tertiary">Status</td>
-          <td class="text-white font-tertiary">:</td>
-          <td><form action="proses.php" method="get">
-            <p class="text-white font-tertiary"><input type="radio" name="opsi1" value="pelanggan">Pelanggan</p>
-            <p class="text-white font-tertiary"><input type="radio" name="opsi2" value="bukan pelanggan">Bukan Pelanggan</p>
-        </form></td>
-        </tr>
-        
-        <tr>
-            <td class="text-white font-tertiary">Harga</td>
-            <td class="text-white font-tertiary">:</td>
-            <td style="padding-left: 15px;"><input type="text" name="harga" size="39"></td>
-        </tr>
+                        <tr>
+                          <td class="text-white font-tertiary">Diskon 10%</td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td style="padding-left: 15px;"><input type="text" name="diskon" size="39"></td>
+                        </tr>
 
-        <tr>
-            <td class="text-white font-tertiary">Total</td>
-            <td class="text-white font-tertiary">:</td>
-            <td style="padding-left: 15px;"><input type="text" name="total" size="39"></td>
-        </tr>
-
-        <tr>
-            <td class="text-white font-tertiary">Diskon 10%</td>
-            <td class="text-white font-tertiary">:</td>
-            <td style="padding-left: 15px;"><input type="text" name="diskon" size="39"></td>
-        </tr>
-
-        <tr>
-          <td class="text-white font-tertiary">Bayar</td>
-          <td class="text-white font-tertiary">:</td>
-          <td style="padding-left: 15px;"><input type="text" name="bayar" size="39"></td>
-        </tr>
-
-    </table>
-    <br>
-    <p class="text-left" style="padding-right: 40px;">
-        <button class="button btn-success" onClick='inputdata()' type="button"
-            name="Bsubmit">Proses</button>
-        <button class="button btn-info" type="reset" name="Breset">Reset</button></p>
-
-</form>
+                        <tr>
+                          <td class="text-white font-tertiary">Bayar</td>
+                          <td class="text-white font-tertiary">:</td>
+                          <td style="padding-left: 15px;"><input type="text" name="bayar" size="39"></td>
+                        </tr>
+                      </table>
+                      <br>
+                      <p class="text-right" style="padding-right: 40px;">
+                          <button class="button btn-success" onClick='inputdata()' type="button"
+                              name="Bsubmit">Proses</button>
+                          <button class="button btn-info" type="reset" name="Breset">Reset</button></p>
+  
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
   <!-- background shapes -->
   <img src="images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
   <img src="images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
