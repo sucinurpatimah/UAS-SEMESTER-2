@@ -125,7 +125,38 @@
                         <button class="button btn-success" onClick='inputdata()' type="button"
                             name="Bsubmit">Proses</button>
                         <button class="button btn-info" type="reset" name="Breset">Reset</button></p>
-                        
+                    
+                    <script>
+                      function inputdata(){
+                        var barang=document.getElementById('form pembelian barang').value;
+                        var harga;
+                        if (barang=="monitor"){
+                          harga=1500000;
+                        }
+                        else if (barang=="laptop"){
+                          harga=7000000;
+                        }
+                        else if (barang=="tv"){
+                          harga=2000000;
+                        }
+                        else if (barang=="kulkas"){
+                          harga=800000;
+                        }
+                        else {
+                          harga=0;
+                        }
+
+                        document.getElementById('harga').value=harga;
+                      }
+
+                      function jumlah(){
+                        var jumlah=document.getElementById('jumlah').value;
+                        var harga=document.getElementById('harga').value;
+                        var total=document.getElementById('total').value = harga;
+                      }
+
+                    </script>
+                    
                 </form>
             </div>
         </div>
