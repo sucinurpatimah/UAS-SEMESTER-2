@@ -35,6 +35,98 @@
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+
+  <script>
+    function inputdata() {
+            var nama = document.forms['program penjualan barang elektronik']['nama'].value;
+            var harga = document.forms['program penjualan barang elektronik']['harga'].value;
+            var jumlah = document.forms['program penjualan barang elketronik']['jumlah'].value;
+            var checkbox = document.forms['program penjualan barang elektronik']['aksesoris'];
+
+            var tabel = document.getElementById("databel");
+            var baris = tabel.insertRow(1);
+            var kol1 = baris.insertCell(0);
+            var kol2 = baris.insertCell(1);
+            var kol3 = baris.insertCell(2);
+            var kol4 = baris.insertCell(3);
+            var kol5 = baris.insertCell(4);
+            var kol6 = baris.insertCell(5);
+            var kol7 = baris.insertCell(6);
+
+            kol1.innerHTML = nama;
+            kol2.innerHTML = harga;
+            kol3.innerHTML = jumlah;
+
+            var aksesoris = "";
+            for (var i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked) {
+                    aksesoris = aksesoris + checkbox[i].value + ", ";
+                }
+            }
+            kol4.innerHTML = aksesoris.replace(/,\s*$/, "");
+            
+            var usb = 50000;
+            var memory = 120000;
+            var speaker = 40000;
+            if (checkbox[0].checked) {
+                kol5.innerHTML = (harga * jumlah) + usb;
+            } else if (checkbox[1].checked) {
+                kol5.innerHTML = (harga * jumlah) + memory;
+            } else if (checkbox[2].checked) {
+                kol5.innerHTML = (harga * jumlah) + speaker;
+            }
+            if (checkbox[0].checked && checkbox[1].checked) {
+                kol5.innerHTML = (harga * jumlah) + usb + memory;
+            } else if (checkbox[0].checked && checkbox[2].checked) {
+                kol5.innerHTML = (harga * jumlah) + usb + speaker;
+            } else if (checkbox[1].checked && checkbox[2].checked) {
+                kol5.innerHTML = (harga * jumlah) + memory + speaker;
+            }
+            if (checkbox[0].checked && checkbox[1].checked && checkbox[2].checked) {
+                kol5.innerHTML = (harga * jumlah) + usb + memory + speaker;
+            }
+            
+            if (checkbox[0].checked) {
+                kol6.innerHTML = ((harga * jumlah) + usb) * 10 / 100;
+            } else if (checkbox[1].checked) {
+                kol6.innerHTML = ((harga * jumlah) + memory) * 10 / 100;
+            } else if (checkbox[2].checked) {
+                kol6.innerHTML = ((harga * jumlah) + speaker) * 10 / 100;
+            }
+            if (checkbox[0].checked && checkbox[1].checked) {
+                kol6.innerHTML = ((harga * jumlah) + usb + memory) * 10 / 100;
+            } else if (checkbox[0].checked && checkbox[2].checked) {
+                kol6.innerHTML = ((harga * jumlah) + usb + speaker) * 10 / 100;
+            } else if (checkbox[1].checked && checkbox[2].checked) {
+                kol6.innerHTML = ((harga * jumlah) + memory + speaker) * 10 /
+                    100;
+            }
+            if (checkbox[0].checked && checkbox[1].checked && checkbox[2].checked) {
+                kol6.innerHTML = ((harga * jumlah) + usb + memory + speaker) * 10 / 100;
+            }
+            
+            if (checkbox[0].checked) {
+                kol7.innerHTML = ((harga * jumlah) + usb) + ((harga * jumlah) + usb) * 10 / 100;
+            } else if (checkbox[1].checked) {
+                kol7.innerHTML = ((harga * jumlah) + memory) + ((harga * jumlah) + memory) * 10 / 100;
+            } else if (checkbox[2].checked) {
+                kol7.innerHTML = ((harga * jumlah) + speaker) + ((harga * jumlah) + speaker) * 10 / 100;
+            }
+            if (checkbox[0].checked && checkbox[1].checked) {
+                kol7.innerHTML = ((harga * jumlah) + usb + memory) + ((harga * jumlah) + usb + memory) * 10 / 100;
+            } else if (checkbox[0].checked && checkbox[2].checked) {
+                kol7.innerHTML = ((harga * jumlah) + usb + speaker) + ((harga * jumlah) + usb + speaker) * 10 / 100;
+            } else if (checkbox[1].checked && checkbox[2].checked) {
+                kol7.innerHTML = ((harga * jumlah) + memory + speaker) + ((harga * jumlah) + memory + speaker) * 10 /
+                    100;
+            }
+            if (checkbox[0].checked && checkbox[1].checked && checkbox[2].checked) {
+                kol7.innerHTML = ((harga * jumlah) + usb + memory + speaker) + ((harga * jumlah) + usb + memory +
+                    speaker) * 10 / 100;
+            }
+        }
+  </script>
+
 </head>
 <body>
   
@@ -92,47 +184,29 @@
                         <tr>
                             <td class="text-white font-tertiary">Nama Barang</td>
                             <td class="text-white font-tertiary">:</td>
-                            <td style="padding-left: 15px;"><input type="text" name="nama" size="39"></td>
+                            <td style="padding-left: 15px;"><input id="nama" type="text" name="nama" size="39"></td>
                         </tr>
 
                         <tr>
                             <td class="text-white font-tertiary">Harga</td>
                             <td class="text-white font-tertiary">:</td>
-                            <td style="padding-left: 15px;"><input type="text" name="harga" size="39"></td>
+                            <td style="padding-left: 15px;"><input id="harga" type="text" name="harga" size="39"></td>
                         </tr>
 
                         <tr>
                             <td class="text-white font-tertiary">Jumlah</td>
                             <td class="text-white font-tertiary">:</td>
-                            <td style="padding-left: 15px;"><input type="text" name="jumlah" size="39"></td>
+                            <td style="padding-left: 15px;"><input id="jumlah" type="text" name="jumlah" size="39"></td>
                         </tr>
 
                         <tr>
-                            <td class="text-white font-tertiary">Aksesoris</td>
+                            <td class="text-white font-tertiary" id="aksesoris">Aksesoris</td>
                             <td class="text-white font-tertiary">:</td>
                             <td><form action="proses.php" method="get">
                                 <p class="text-white font-tertiary"><input type="checkbox" name="opsi1" value="usb">USB</p>
                                 <p class="text-white font-tertiary"><input type="checkbox" name="opsi2" value="memory">Memory</p>
                                 <p class="text-white font-tertiary"><input type="checkbox" name="opsi3" value="speaker">Speaker</p>
                             </form></td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="text-white font-tertiary">Total</td>
-                            <td class="text-white font-tertiary">:</td>
-                            <td style="padding-left: 15px;"><input type="text" name="total" size="39"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-white font-tertiary">Pajak 10%</td>
-                            <td class="text-white font-tertiary">:</td>
-                            <td style="padding-left: 15px;"><input type="text" name="pajak" size="39"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-white font-tertiary">Bayar</td>
-                            <td class="text-white font-tertiary">:</td>
-                            <td style="padding-left: 15px;"><input type="text" name="bayar" size="39"></td>
                         </tr>
 
                     </table>
@@ -146,7 +220,7 @@
             </div>
 
             <div class="col-lg-3">
-                <table class="table" id="databel">
+                <table class="table">
                     <thead>
                         <tr>
                             <th class="text-white font-tertiary" scope="col">Aksesoris</th>
@@ -167,6 +241,21 @@
                     </thead>
                 </table>
             </div>
+
+            <table class="table" id="databel">
+              <thead>
+                  <tr>
+                      <th class="text-white font-tertiary" scope="col">Nama Barang</th>
+                      <th class="text-white font-tertiary" scope="col">Harga</th>
+                      <th class="text-white font-tertiary" scope="col">Jumlah</th>
+                      <th class="text-white font-tertiary" scope="col">Aksesoris</th>
+                      <th class="text-white font-tertiary" scope="col">Total</th>
+                      <th class="text-white font-tertiary" scope="col">Pajak 10%</th>
+                      <th class="text-white font-tertiary" scope="col">Bayar</th>
+                  </tr>
+              </thead>
+          </table>
+
         </div>
     </div>
 </div>
